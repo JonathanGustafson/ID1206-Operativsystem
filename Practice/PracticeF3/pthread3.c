@@ -15,11 +15,9 @@ void *thread_func1(void *args){
     }
 }
 
-thread_func2(void* args){
-
+thread_func2(void* args){ 
+    
 }
-
-
 
 int main(){
 
@@ -27,8 +25,11 @@ int main(){
     int i = 1;
     int j = 2;
 
-    pthread_create(&t1, NULL, thread_func, &i);
-    pthread_create(&t2, NULL, thread_func, &j);
+    pthread_create(&t1, NULL, thread_func1, &i);
+    pthread_create(&t2, NULL, thread_func2, &j);
+
+    pthread_join(t1, NULL);
+    pthread_join(t2, NULL);
 
     printf("I am the main thread");
 
