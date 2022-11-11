@@ -14,7 +14,7 @@ int main(void){
     /*Extract the content of the text file to a string*/
     char *buffer;
     int length;
-    FILE * f = fopen ("Loremipsum.txt", "rb");
+    FILE * f = fopen ("Loremipsum.txt", "r");
 
     fseek (f, 0, SEEK_END);
     length = ftell (f);
@@ -24,7 +24,7 @@ int main(void){
     fread (buffer, 1, length, f);
     fclose (f);
 
-    printf("%d", length);
+    printf("Message length is: %d\n", length);
 
     char *my_mq = "/mq";
     mqd_t mqd;

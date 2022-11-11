@@ -9,7 +9,7 @@
 
 int main(void){
 
-    int MAX_SIZE = 8000;
+    int MAX_SIZE = 400;
     int MAX_NUM_MSG = 10;
     char *my_mq = "/mq";
     char buf[MAX_SIZE];
