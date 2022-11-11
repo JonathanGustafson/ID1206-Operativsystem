@@ -9,7 +9,7 @@
 
 int main(void){
 
-    int MAX_SIZE = 150;
+    int MAX_SIZE = 8000;
     int MAX_NUM_MSG = 10;
     char *my_mq = "/mq";
     char buf[MAX_SIZE];
@@ -24,7 +24,7 @@ int main(void){
     // Create message queue
     mqd = mq_open(my_mq, O_RDONLY | O_CREAT, 0644, &attr);
     
-    printf("Hi I'm Luke, i just got a message:\n");
+    printf("Hi I'm Luke (With Max_Size %d), i just got a message:\n", MAX_SIZE);
 
     // Read the message from the message queue
     mq_receive(mqd, buf, MAX_SIZE, NULL);

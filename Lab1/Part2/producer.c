@@ -9,24 +9,29 @@
 
 int main(void){
 
+    printf("Luke, I have a message for you\n");
+
     /*Extract the content of the text file to a string*/
     char *buffer;
     int length;
     FILE * f = fopen ("Loremipsum.txt", "rb");
+
     fseek (f, 0, SEEK_END);
     length = ftell (f);
+
     fseek (f, 0, SEEK_SET);
-    buffer = malloc (length);
+    buffer = malloc (length); 
     fread (buffer, 1, length, f);
     fclose (f);
 
-    printf("Luke, I have a message for you\n");
-    //printf("%s", buffer);
+    printf("%d", length);
 
     char *my_mq = "/mq";
     mqd_t mqd;
     mqd = mq_open(my_mq, O_WRONLY);
+
     mq_send(mqd, buffer, strlen(buffer), 0);
+    
     mq_close(mqd);
 
     exit(0);
