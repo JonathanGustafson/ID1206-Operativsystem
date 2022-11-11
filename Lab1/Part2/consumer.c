@@ -9,7 +9,7 @@
 
 int main(void){
 
-    int MAX_SIZE = 100;
+    int MAX_SIZE = 150;
     int MAX_NUM_MSG = 10;
     char *my_mq = "/mq";
     char buf[MAX_SIZE];
@@ -33,6 +33,15 @@ int main(void){
     // Close the message queue
     mq_unlink(my_mq);
     mq_close(mqd);
+
+    int count = 0, i;
+ 
+       for (i = 0;buf[i] != '\0';i++)
+    {
+        if (buf[i] == ' ' && buf[i+1] != ' ')
+            count++;    
+    }
+    printf("Number of words in given message is: %d\n", count + 1);
   
 
     exit(0);

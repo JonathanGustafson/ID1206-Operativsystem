@@ -21,7 +21,7 @@ int main(void){
     fclose (f);
 
     printf("Luke, I have a message for you\n");
-    printf("%s", buffer);
+    //printf("%s", buffer);
 
     char *my_mq = "/mq";
     mqd_t mqd;
