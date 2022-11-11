@@ -12,7 +12,7 @@ int main(void){
     /*Extract the content of the text file to a string*/
     char *buffer;
     int length;
-    FILE * f = fopen ("Loremipsum.txt", "r");
+    FILE * f = fopen ("Loremipsum.txt", "rb");
     fseek (f, 0, SEEK_END);
     length = ftell (f);
     fseek (f, 0, SEEK_SET);
