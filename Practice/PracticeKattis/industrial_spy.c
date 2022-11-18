@@ -1,20 +1,21 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(){
 
     int n;
     scanf("%d", &n);
 
-    int array[n];
-    int tmp;
+    char *array[n];
+    char* tmp;
 
     for(int i = 0; i < n; i++){
-        scanf("%d", &tmp);
+        scanf("%s", &tmp);
         array[i] = tmp;
     }
 
-    for(int j = n-1; j >= 0; j--){
-        printf("%d\n",  array[j]);
+    for(int i = 0; i < n; i++){
+        
     }
 
     return 0;
