@@ -14,7 +14,11 @@ int main(){
     }
 
     for(int j = n-1; j >= 0; j--){
+<<<<<<< Updated upstream
         printf("%d\n",  array[j]);
+=======
+        printf("%d\n" ,  array[j]);
+>>>>>>> Stashed changes
     }
 
     return 0;
