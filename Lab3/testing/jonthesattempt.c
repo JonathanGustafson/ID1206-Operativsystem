@@ -1,6 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
+#define FRAMES 256
+#define SIZE 256
+
+int memory[FRAMES][SIZE]; // the memory 
+bool frame_available_map[FRAMES]; //true is available
+
+//find first free frame
+int find_free() {
+  for(int i = 0; i < FRAMES; i++) {
+    if(frame_available_map[i] == false) {
+      frame_available_map[i] = true;
+      return i;
+    }
+  }
+  return -1;
+}
 
 //assumes 16bit input
 int extract_page(int addr){
@@ -34,8 +51,6 @@ int main(int argc, char *argv[]){
     while (fgets(line, sizeof(line), file)) {
         page = extract_page(atoi(line));
         offset = extract_offset(atoi(line));
-
-        printf("Page: %d, Offset: %d \n", page, offset);
     }
 
 
