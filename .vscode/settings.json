@@ -24,6 +24,9 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "array": "c",
+        "string_view": "c",
+        "utility": "c"
     }
 }

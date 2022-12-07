@@ -29,6 +29,8 @@ void sort(int *list, int size){
 	}
 }
 
+
+
 int sstf(int* request_list, int size){
     sort(request_list, size);
 
@@ -38,8 +40,6 @@ int sstf(int* request_list, int size){
     
     int high_index, low_index;  //Indexes for higher and lower
     int high_dist, low_dist;
-
-    int remaining_requests = size;
 
     //find closest request to start 
     next_list_pos = 0;
@@ -60,6 +60,8 @@ int sstf(int* request_list, int size){
 
          high_dist  = abs(request_list[high_index] - request_list[curr_list_pos]);
          low_dist   = abs(request_list[low_index] - request_list[curr_list_pos]);
+
+         //printf("Head pos: %d Head value: %d Low index: %d Low value %d High index: %d High value %d\n", curr_list_pos, request_list[curr_list_pos], low_index, request_list[low_index], high_index, request_list[high_index]);
          
         //if the distance to the left is less than distance to the right
          if( low_dist < high_dist){
@@ -73,7 +75,7 @@ int sstf(int* request_list, int size){
                  low_index--;
              }
              else{
-                 low_index = size;
+                 low_index = size-1;
              }    
          }
 
@@ -94,6 +96,9 @@ int sstf(int* request_list, int size){
         curr_list_pos = next_list_pos;
     }
 
+    //add last movement (doesnt matter if we check high or low index since they are the same)
+    head_movement += abs(request_list[high_index] - request_list[curr_list_pos]);
+
     return head_movement;
 
 }
@@ -106,8 +111,9 @@ void test1(){
 }
 
 void test2(){
+    //sorted we have     {14,37,65,67,98,122,124,183}
     int request_list[] = {98,183,37,122,14,124,65,67};
-    printf("SSTF head movements: %d\n", sstf(request_list, 8));
+    printf("\nSSTF head movements: %d\n", sstf(request_list, 8));
 }
 
 int main (int argc, char *argv[]) {
